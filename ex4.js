@@ -8,8 +8,7 @@ function countBlank(file) {
         strBufferArray.forEach(element => {
             numberOfLines += 1;
         });
-        console.log(numberOfLines);
-        return numberOfLines;
+        return numberOfLines - 1;
     })
 }
 
