@@ -9,3 +9,25 @@
   complete String of characters sent by the server.
 */ 
 
+const http = require('http');
+const req = http.request(process.argv[2], (err,res) => {
+    let requested = "";
+    res.setEncoding('utf8');
+
+    if (err) return err;
+    try { 
+      res.on('data', (err, chunk) => {
+        if (err) return err;
+        requested += chunk;
+      }) 
+      
+      res.on('end', res => {
+         return JSON.parse(res);
+      })
+    } catch {
+      return console.log("something is wrong");
+    }
+})
+
+console.log(req);
+
