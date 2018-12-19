@@ -2,7 +2,7 @@ function spider(url, nesting, callback) {
     const filename = utilities.urlToFilename(url);
     fs.readFile(filename, 'utf8', (err, body) => {
         if(err) {
-            if(err.code ! == 'ENOENT') {
+            if(err.code !== 'ENOENT') {
                 return callback(err);
             }
             return download(url, filename, (err, body) => {

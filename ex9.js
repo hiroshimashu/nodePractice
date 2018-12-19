@@ -10,5 +10,3 @@
   command-line arguments.
 */
 
-const http = require('http');
-
